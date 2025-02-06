@@ -440,6 +440,7 @@ html {
   grid-column: 6 span;
   background: #fff;
   border-radius: 0 0 50px 50px;
+  overflow: hidden;
 }
 .grid-2__item .descr {
   margin-top: 20px;
@@ -477,7 +478,7 @@ html {
 }
 
 .input__group {
-  margin-top: 50px;
+  margin-top: 74px;
 }
 
 .input {
@@ -512,7 +513,7 @@ html {
 .form__btn {
   font-family: "Inter", sans-serif;
   border: 2px solid #10172D;
-  margin-top: 50px;
+  margin-top: 74px;
   background: #F2F3F4;
   color: #10172D;
   width: 100%;
@@ -526,6 +527,7 @@ html {
 .checkbox__container {
   display: flex;
   align-items: center;
+  margin-top: 74px;
 }
 .checkbox__container .descr {
   margin-left: 20px;
@@ -805,11 +807,38 @@ input[type=checkbox]:checked {
   width: 85%;
 }
 .invest .grid-2__item {
+  overflow: hidden;
   display: block;
   border-radius: 50px;
+  position: relative;
 }
 .invest .grid-2__item .text-block {
   padding: 40px;
+}
+
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide .metro-block {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 40px;
+}
+.swiper-slide .metro-block .descr {
+  margin-left: 40px;
+}
+.swiper-slide .metro-block::before {
+  content: "";
+  position: absolute;
+  margin-right: 50px;
+  background: url(../img/metro.svg) no-repeat;
+  top: 50%;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  z-index: 20;
 }
 
 .grid-2__list {
@@ -817,6 +846,43 @@ input[type=checkbox]:checked {
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
   margin-top: 40px;
+}
+
+.swiper-button-lock {
+  display: block;
+}
+
+.arrow-left {
+  transform: rotate(180deg);
+  width: 60px;
+  height: 60px;
+  margin-left: 40px;
+  opacity: 0;
+  transition: 0.3s all ease;
+}
+
+.arrow-right {
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+  opacity: 0;
+  transition: 0.3s all ease;
+}
+
+.swiper:hover .arrow-left,
+.swiper:hover .arrow-right {
+  opacity: 1;
+  transition: 0.3s all ease;
+}
+
+.swiper-wrapper {
+  position: relative;
+}
+
+.swiper__btn-container {
+  position: absolute;
+  top: 25%;
+  width: 100%;
 }
 
 .faq .header-2 {
@@ -882,16 +948,123 @@ input[type=checkbox]:checked {
   margin-bottom: 5px;
 }
 
+.news .top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.news .top a {
+  color: #F2F3F4;
+  text-decoration: underline;
+}
+.news .header-1 {
+  color: #F2F3F4;
+}
+.news .left,
+.news .right {
+  background: #F2F3F4;
+}
+.news .grdi-2__list {
+  margin-top: 40px;
+}
+.news .grid-2__item {
+  display: grid;
+  align-content: stretch;
+  overflow: hidden;
+}
+.news .grid-2__item .img {
+  height: 200px;
+}
+.news .text__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.news .text__container .text:nth-child(2) {
+  margin-top: -40px;
+}
+
+.contacts-white .form__container {
+  background: #F2F3F4;
+}
+.contacts-white input {
+  border: 1px solid #10172D;
+}
+.contacts-white span {
+  color: #10172D;
+}
+.contacts-white a {
+  color: #10172D;
+}
+.contacts-white .checkbox__container .descr {
+  color: #10172D;
+  margin-top: 0;
+}
+.contacts-white .btn {
+  background: #10172D;
+  color: white;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
+}
+
 .footer {
-  padding: 50px 10%;
+  padding: 40px 10%;
   background-color: #F2F3F4;
   color: #10172D;
   text-align: center;
-  margin-top: 100px;
+  border-radius: 50px 50px 0 0;
+  margin-top: -50px;
 }
 .footer a {
   color: #10172D;
 }
 .footer a:hover {
   color: #39425E;
+}
+.footer .top {
+  display: flex;
+  justify-content: start;
+}
+.footer .center {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.footer .grid-3__list {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.footer .grid-3__item {
+  display: grid;
+  grid-column: 4 span;
+  text-align: left;
+}
+.footer .right .descr {
+  font-weight: 400;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+.footer .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 40px;
+}
+.footer .bottom .left {
+  text-align: left;
+}
+.footer .bottom .left .descr {
+  font-size: 16px;
+}
+.footer .bottom .right svg:nth-child(1) {
+  margin-right: 20px;
+}
+.footer .bottom .right .descr {
+  font-size: 14px;
+  margin-top: 40px;
+  padding: 0;
 }/*# sourceMappingURL=style.css.map */
