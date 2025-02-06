@@ -164,7 +164,7 @@ a {
 }
 
 .container {
-  padding: 0 7%;
+  padding: 0 100px;
   max-width: 1440px;
   margin: 0 auto;
   overflow: hidden;
@@ -241,7 +241,7 @@ html {
   width: 94%;
   max-width: 1440px;
   opacity: 1;
-  height: auto;
+  height: 87px;
   z-index: 20;
 }
 
@@ -250,6 +250,10 @@ html {
   height: 0;
   width: 0;
   transition: opacity 0.4s ease;
+}
+
+.header.h-height {
+  height: auto !important;
 }
 
 .nav__mob {
@@ -284,6 +288,7 @@ html {
 }
 .header__container .header__top .header__right .header__social a {
   padding-right: 20px;
+  fill: #10172D;
 }
 .header__container .header__top .header__right .header__social a:hover {
   color: #39425E;
@@ -336,7 +341,7 @@ html {
 }
 
 .main {
-  padding-top: 200px;
+  padding-top: 130px;
   color: #F2F3F4;
 }
 .main .top {
