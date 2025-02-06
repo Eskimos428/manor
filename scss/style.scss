@@ -136,7 +136,7 @@ a {
 
 
 .container {
-    padding: 0 7%; //100px
+    padding: 0 100px; //100px
     max-width: 1440px;
     margin: 0 auto;
     overflow: hidden;
@@ -219,15 +219,19 @@ html {
     width: 94%;
     max-width: 1440px;
     opacity: 1;
-    height: auto;
+    height: 87px;
     z-index: 20;
 }
 
 .header {
     opacity: 0;
-    height: 0;
+    height:0;
     width: 0;
     transition: $transition-opacity;
+}
+
+.header.h-height {
+    height: auto !important;;
 }
 
 .nav__mob {
@@ -265,6 +269,7 @@ html {
                 a {
 
                     padding-right: 20px;
+                    fill: $font-color;
 
                     &:hover {
                         color: $hover;
@@ -340,7 +345,7 @@ html {
 
 
 .main {
-    padding-top: 200px;
+    padding-top: 130px;
     color: $white;
 
     .top {
@@ -914,7 +919,7 @@ input[type="checkbox"]:checked {
         display: block;
         border-radius: 50px;
 
-        .text-block{
+        .text-block {
             padding: 40px;
         }
     }
@@ -932,24 +937,25 @@ input[type="checkbox"]:checked {
 
 //ACCORDEON faq
 
-.faq{
-    .header-2{
-        color: $white;
-    }
-    .header-3{
+.faq {
+    .header-2 {
         color: $white;
     }
 
-    .descr{
+    .header-3 {
+        color: $white;
+    }
+
+    .descr {
         color: $white;
         font-size: 16px;
     }
 
 
-    
+
 }
 
-.add-info__list{
+.add-info__list {
     margin-top: $mtheader-margin-top;
 }
 
