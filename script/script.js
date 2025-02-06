@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeBtn = document.querySelector('.close')
   const nav = document.querySelector('.header__bottom')
   const navMobile = document.querySelector('.nav__mob')
+  const headerOpen = document.querySelector('.header')
 
   if (burgerBtn) {
     burgerBtn.addEventListener('click', () => {
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
       navMobile.classList.toggle('active')
       burgerBtn.classList.remove('active')
       closeBtn.classList.add('active')
+
+      headerOpen.classList.add('h-height')
 
     })
   }
@@ -37,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navMobile.classList.toggle('active')
       burgerBtn.classList.add('active')
       closeBtn.classList.remove('active')
+      headerOpen.classList.remove('h-height')
     })
   }
 
