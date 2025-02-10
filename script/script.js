@@ -1,18 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  //header скролл скрытие и возвращение
   let header = document.querySelector('header');
   let timeout;
-
-  function removeActiveClass() {
-    header.classList.remove('active');
+  let lastScrollTop = 0; // Последняя позиция скролла
+  const screenThreshold = window.innerHeight * 0.7; // 90% от высоты экрана
+  
+  function handleHeaderVisibility() {
+    const currentScrollTop = window.scrollY; // Текущая позиция скролла
+  
+    // Если пользователь находится в пределах 90% высоты экрана, хедер всегда виден
+    if (currentScrollTop <= screenThreshold) {
+      header.classList.add('active');
+      return;
+    }
+  
+    // Если пользователь скроллит вверх, показать хедер
+    if (currentScrollTop < lastScrollTop) {
+      header.classList.add('active');
+    } else {
+      // Если пользователь скроллит вниз, скрыть хедер
+      header.classList.remove('active');
+    }
+  
+    // Обновление последней позиции скролла
+    lastScrollTop = currentScrollTop;
+  
+    // Если скролл прекратился, через 3 секунды показать хедер
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       header.classList.add('active');
     }, 3000);
   }
-
-  window.addEventListener('scroll', removeActiveClass);
+  
+  window.addEventListener('scroll', handleHeaderVisibility);
+  
 
 
   /*открытие бургер-меню*/
@@ -45,26 +66,41 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-  // скролл партнеры
+  // Скролл партнеры
   let scrollPosition = 0;
   window.addEventListener('scroll', () => {
     let newPosition = window.scrollY * -0.9; // Регулировка скорости смещения
-    let newPositionAdv = window.scrollY * -0.28 // Регулировка скорости смещения
-    document.getElementById('partners').style.transform = `translate(-10%, -50%) translateX(${newPosition}px)`;
-    document.getElementById('advantages').style.transform = `translate(30%, -50%) translateX(${newPositionAdv}px)`;
+    let newPositionAdv = window.scrollY * -0.28; // Регулировка скорости смещения
+
+    const partnersElement = document.getElementById('partners');
+    const advantagesElement = document.getElementById('advantages');
+
+    if (partnersElement) {
+      partnersElement.style.transform = `translate(-10%, -50%) translateX(${newPosition}px)`;
+    }
+
+    if (advantagesElement) {
+      advantagesElement.style.transform = `translate(30%, -50%) translateX(${newPositionAdv}px)`;
+    }
   });
+
 
 
   //Калькулятор выбор choise 
 
-  //начальное меню
+  // Получаем все popUpContainers заранее
+  const popUpContainers = document.querySelectorAll('.popup__container');
+
+  // Начальное меню
   document.querySelectorAll(".btn-choise").forEach(button => {
     button.addEventListener("click", function () {
       const slide1 = document.getElementById("slide-1");
       const slide2 = document.getElementById("slide-2");
 
+      // Показываем slide-2 и сбрасываем шаги калькулятора
       slide1.classList.remove("active", "fullscreen");
       slide2.classList.add("active", "fullscreen");
+      resetSteps(); // Сбрасываем шаги калькулятора на первый
     });
   });
 
@@ -74,11 +110,22 @@ document.addEventListener('DOMContentLoaded', function () {
       const slide1 = document.getElementById("slide-1");
       const slide2 = document.getElementById("slide-2");
 
-      slide2.classList.remove("active", "fullscreen");
-      slide1.classList.add("active", "fullscreen");
+      if (slide2) {
+        slide2.classList.remove("active", "fullscreen");
+      }
+
+      if (slide1) {
+        slide1.classList.add("active", "fullscreen");
+      }
+
+      // Убираем класс fullscreen со всех popUpContainers
+      popUpContainers.forEach(container => {
+        container.classList.remove("fullscreen");
+      });
+
+      resetSteps(); // Сбрасываем шаги калькулятора на первый
     });
   });
-
 
   // переключение слайдов калькулятора и отправка формы
   let currentStep = 0;
@@ -106,11 +153,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Проверка, чтобы на текущем шаге была выбрана радио-кнопка
-    const currentStepRadios = steps[currentStep].querySelectorAll('input[type="radio"]');
-    const isSelected = Array.from(currentStepRadios).some(radio => radio.checked);
-    nextButtons.forEach(button => {
-      button.disabled = !isSelected; // Блокируем кнопку Next, если не выбрана радио-кнопка
-    });
+    if (steps[currentStep]) { // Проверяем, существует ли текущий шаг
+      const currentStepRadios = steps[currentStep].querySelectorAll('input[type="radio"]');
+      const isSelected = Array.from(currentStepRadios).some(radio => radio.checked);
+
+      nextButtons.forEach(button => {
+        button.disabled = !isSelected; // Блокируем кнопку Next, если не выбрана радио-кнопка
+      });
+    }
+
   }
 
   // Функция для активации кнопок на изменении радио-кнопок
@@ -130,6 +181,17 @@ document.addEventListener('DOMContentLoaded', function () {
     nextButtons.forEach(button => {
       button.disabled = !isSelected; // Блокируем кнопку Next, если не выбрана радио-кнопка
     });
+  }
+
+  // Функция сброса шагов калькулятора
+  function resetSteps() {
+    currentStep = 0; // Возвращаемся к первому шагу
+    steps.forEach((step, index) => {
+      step.classList.toggle("active", index === 0); // Активируем только первый шаг
+    });
+    // Сбрасываем выбор радио-кнопок
+    Object.keys(userSelections).forEach(key => delete userSelections[key]);
+    updateStep(); // Обновляем состояние интерфейса
   }
 
   // Обработчик для кнопок "Next"
@@ -164,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
   updateStep();
 
 
+
   //Замена текста у формы при успешной отправке
 
   document.querySelectorAll(".form-change").forEach(formContainer => {
@@ -195,6 +258,37 @@ document.addEventListener('DOMContentLoaded', function () {
         form.reportValidity(); // Показываем встроенные ошибки браузера
       }
     });
+  });
+
+
+  //Работа открытия попап формы для всех страниц
+  const formPopupOpenButtons = document.querySelectorAll('.form-popup-open');
+
+  // Добавляем обработчик клика для каждого элемента
+  formPopupOpenButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      // Находим элемент с id="slide-2"
+      const slide2 = document.getElementById('slide-2');
+
+      // Добавляем класс fullscreen
+      if (slide2) {
+        slide2.classList.add('fullscreen');
+      }
+    });
+  });
+
+
+  //slider-swiper
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
   });
 
 
