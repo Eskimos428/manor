@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
   let timeout;
   let lastScrollTop = 0; // Последняя позиция скролла
   const screenThreshold = window.innerHeight * 0.7; // 90% от высоты экрана
-  
+
   function handleHeaderVisibility() {
     const currentScrollTop = window.scrollY; // Текущая позиция скролла
-  
+
     // Если пользователь находится в пределах 90% высоты экрана, хедер всегда виден
     if (currentScrollTop <= screenThreshold) {
       header.classList.add('active');
       return;
     }
-  
+
     // Если пользователь скроллит вверх, показать хедер
     if (currentScrollTop < lastScrollTop) {
       header.classList.add('active');
@@ -21,19 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
       // Если пользователь скроллит вниз, скрыть хедер
       header.classList.remove('active');
     }
-  
+
     // Обновление последней позиции скролла
     lastScrollTop = currentScrollTop;
-  
+
     // Если скролл прекратился, через 3 секунды показать хедер
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       header.classList.add('active');
     }, 3000);
   }
-  
+
   window.addEventListener('scroll', handleHeaderVisibility);
-  
+
 
 
   /*открытие бургер-меню*/
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const advantagesElement = document.getElementById('advantages');
 
     if (partnersElement) {
-      partnersElement.style.transform = `translate(-10%, -50%) translateX(${newPosition}px)`;
+      partnersElement.style.transform = `translate(0%, -50%) translateX(${newPosition}px)`;
     }
 
     if (advantagesElement) {
@@ -291,6 +291,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 
+  //маска телефон
+  const phoneInputs = document.querySelectorAll('.phone-mask');
+
+  phoneInputs.forEach(input => {
+    const maskOptions = {
+      mask: '+7(000)000-00-00',
+      lazy: true
+    };
+
+    const mask = new IMask(input, maskOptions);
+
+    input.addEventListener('focus', () => {
+      mask.updateOptions({ lazy: false }); // Показываем маску при фокусе
+    });
+
+    input.addEventListener('blur', () => {
+      if (!input.value.trim()) {
+        mask.updateOptions({ lazy: true }); // Прячем маску, если поле пустое
+      }
+    });
+  });
 
   //Анимация
 

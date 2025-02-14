@@ -581,9 +581,9 @@
 
 
                 <section class="contacts contacts-white section-100" id="contacts-2">
-                    <div class="form__container form-change">
+                    <div class="form__container form-change form-white">
                         <div class="form__left">
-                            <h2 class="header-2">
+                            <h2 class="header-1">
                                 Оставьте заявку
                                 на консультацию
                             </h2>
@@ -595,7 +595,7 @@
                                 enctype="multipart/form-data">
                                 <input type="text" name="name" class="input" placeholder="Фамилия Имя Отчество"
                                     minlength="3" required title="Пожалуйста, введите имя">
-                                <input type="tel" name="phone" class="input" placeholder="+7 (800) 000-00-00" required
+                                    <input type="text" name="phone" class="input phone-mask" placeholder="+7 (800) 000-00-00" required
                                     title="Пожалуйста, введите телефон">
                                 <input type="email" name="email" class="input" placeholder="ivan.ivanovich@mail.ru"
                                     required title="Пожалуйста, введите E-mail">
@@ -750,6 +750,7 @@
 
 
     <script defer src="script/script.js"></script>
+    <script src="https://unpkg.com/imask"></script>
 </body>
 
 </html>

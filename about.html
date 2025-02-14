@@ -169,14 +169,14 @@
                     </div>
 
 
-
-                    <div class="scroll__partners section-100">
+                    <div class="scroll__partners section-100 anim__items anim__show">
                         <div class="partners__container" id="partners">
-                            <img src="img/capital.png" class="partners__img" alt="partners 1">
-                            <img src="img/mr-group.png" class="partners__img" alt="partners 2">
-                            <img src="img/ingrad.png" class="partners__img" alt="partners 3">
-                            <img src="img/etalon.png" class="partners__img" alt="partners 4">
-                            <img src="img/partners-5.png" class="partners__img" alt="partners 5">
+                            <img src="img/logo-1.svg" class="partners__img" alt="partners 1">
+                            <img src="img/logo-2.svg" class="partners__img" alt="partners 2">
+                            <img src="img/logo-3.svg" class="partners__img" alt="partners 3">
+                            <img src="img/logo-4.svg" class="partners__img" alt="partners 4">
+                            <img src="img/logo-5.svg" class="partners__img" alt="partners 5">
+                            <img src="img/logo-6.svg" class="partners__img" alt="partners 6">
                         </div>
 
                     </div>
@@ -194,7 +194,7 @@
                             </h2>
                             <p class="descr">
                                 Предлагаем индивидуальный подход, сервис и поддержку —
-                                это позволяет клиенту принимать обдуманные и уверенные решения при реализации
+                                это позволяет клиенту принимать обдуманные и уверенныерешения при реализации
                                 недвижимости.
                                 Наша команда быстро реагирует на изменения и предлагает
                                 вам наиболее подходящие варианты, позволяя вам принимать решения, опираясь на актуальную
@@ -486,30 +486,30 @@
                     </div>
                 </section>
 
-
-                <section class="contacts section-100" id="contacts">
-                    <div class="form__container form-change">
+                <section class="contacts contacts-white section-100" id="contacts-2">
+                    <div class="form__container form-change form-white">
                         <div class="form__left">
                             <h2 class="header-1">
-                                Оставьте заявку на консультацию
+                                Персональная
+                                консультация
                             </h2>
                             <p class="descr">
-                                Наш специалист свяжется с вами в течении 30 минут
+                                Оставьте заявку и мы свяжемся с вами в течении 30 минут 
                             </p>
-
+    
                             <form action="mail.php" method="post" class="input__group" id="feedback-form-1"
                                 enctype="multipart/form-data">
                                 <input type="text" name="name" class="input" placeholder="Фамилия Имя Отчество"
                                     minlength="3" required title="Пожалуйста, введите имя">
-                                <input type="number" name="phone" class="input" placeholder="+7 (800) 000-00-00"
-                                    required title="Пожалуйста, введите телефон">
+                                    <input type="text" name="phone" class="input phone-mask" placeholder="+7 (800) 000-00-00" required
+                                title="Пожалуйста, введите телефон">
                                 <input type="email" name="email" class="input" placeholder="ivan.ivanovich@mail.ru"
                                     required title="Пожалуйста, введите E-mail">
-
+    
                                 <div class="checkbox__container">
                                     <input class="checkbox" type="checkbox" id="checkbox" name="checkbox" required />
                                     <label class="checkbox-label" for="checkbox">
-
+    
                                         <p class="descr">
                                             Я даю согласие на
                                             <a class="privacy__link" href="privacy.html">
@@ -517,7 +517,7 @@
                                                     персональных данных</span>
                                             </a>
                                         </p>
-
+    
                                     </label>
                                 </div>
                                 <button type="submit" class="btn form__btn" name="submit" id="submit-feedback-1">
@@ -529,6 +529,8 @@
                             <img src="img/form.png" alt="Contact form" class="img">
                         </div>
                     </div>
+    
+                    <div class="mb-100"></div>
                 </section>
 
             </div>
@@ -554,8 +556,8 @@
                                 enctype="multipart/form-data">
                                 <input type="text" name="name" class="input" placeholder="Фамилия Имя Отчество"
                                     minlength="3" required title="Пожалуйста, введите имя">
-                                <input type="number" name="phone" class="input" placeholder="+7 (800) 000-00-00"
-                                    required title="Пожалуйста, введите телефон">
+                                    <input type="text" name="phone" class="input phone-mask" placeholder="+7 (800) 000-00-00" required
+                                    title="Пожалуйста, введите телефон">
                                 <input type="email" name="email" class="input" placeholder="ivan.ivanovich@mail.ru"
                                     required title="Пожалуйста, введите E-mail">
 
@@ -712,7 +714,9 @@
 
 
 
+
     <script defer src="script/script.js"></script>
+    <script src="https://unpkg.com/imask"></script>
 </body>
 
 </html>
