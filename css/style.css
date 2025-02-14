@@ -1098,6 +1098,7 @@ input[type=checkbox]:checked {
 
 .contacts-white .form__container {
   background: #F2F3F4;
+  overflow: hidden;
 }
 .contacts-white input {
   border: 1px solid #10172D;
