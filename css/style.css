@@ -454,7 +454,7 @@ html {
 .grdi-2__list {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 34px;
+  gap: 24px;
 }
 
 .grid-2__item {
@@ -502,6 +502,9 @@ html {
   color: #10172D;
 }
 .form-white .input {
+  color: #10172D;
+}
+.form-white .descr {
   color: #10172D;
 }
 
@@ -1205,6 +1208,7 @@ input[type=checkbox]:checked {
 
 .about-partners .header-1 {
   color: #F2F3F4;
+  text-wrap: nowrap;
 }
 
 .type-indiv {
@@ -1286,6 +1290,57 @@ input[type=checkbox]:checked {
 .artical__content .header-3 {
   color: #F2F3F4;
   margin: 40px 0;
+}
+
+.vtorichka-main .top .header-2 {
+  width: 51%;
+  text-wrap: balance;
+}
+.vtorichka-main .top .descr {
+  width: 53%;
+}
+.vtorichka-main .grid-2__item {
+  grid-column: 12 span;
+  display: flex;
+  padding-top: 0;
+}
+.vtorichka-main .grid-2__item .text__container {
+  padding: 0;
+}
+.vtorichka-main .left {
+  width: 50%;
+}
+.vtorichka-main .right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+.vtorichka-main .right .btn__container {
+  background: none;
+  padding: 0;
+}
+.vtorichka-main .right .text {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.vtorichka-main .right .text .descr {
+  font-size: 20px;
+  font-weight: 400;
+}
+.vtorichka-main .right .text .center__block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.vtorichka-main .right .text .center__block .left {
+  width: 50%;
+}
+.vtorichka-main .right .text .center__block .right {
+  width: 50%;
 }
 
 .privacy .descr {
