@@ -70,17 +70,17 @@ document.addEventListener('DOMContentLoaded', function () {
   let scrollPosition = 0;
   window.addEventListener('scroll', () => {
     let newPosition = window.scrollY * -0.9; // Регулировка скорости смещения
-    let newPositionAdv = window.scrollY * -0.28; // Регулировка скорости смещения
+    let newPositionAdv = window.scrollY * -0.38; // Регулировка скорости смещения
 
     const partnersElement = document.getElementById('partners');
     const advantagesElement = document.getElementById('advantages');
 
     if (partnersElement) {
-      partnersElement.style.transform = `translate(0%, -50%) translateX(${newPosition}px)`;
+      partnersElement.style.transform = `translate(20%, 0%) translateX(${newPosition}px)`;
     }
 
     if (advantagesElement) {
-      advantagesElement.style.transform = `translate(30%, -50%) translateX(${newPositionAdv}px)`;
+      advantagesElement.style.transform = `translate(60%, 0%) translateX(${newPositionAdv}px)`;
     }
   });
 
@@ -228,37 +228,70 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   //Замена текста у формы при успешной отправке
-
   document.querySelectorAll(".form-change").forEach(formContainer => {
     const form = formContainer.querySelector("form");
     const submitButton = form.querySelector(".form__btn");
+    const formLeft = formContainer.querySelector(".form__left");
+
+    // Добавляем класс space-between к .form__left
+    if (formLeft) {
+        formLeft.classList.add("space-between");
+    }
+
     const title = formContainer.querySelector(".header-1");
     const description = formContainer.querySelector(".descr");
 
+    // Создаем обертку для заголовка и описания
+    const textWrapper = document.createElement("div");
+    textWrapper.classList.add("text-wrapper");
+
+    if (title && description) {
+        title.parentNode.insertBefore(textWrapper, title);
+        textWrapper.appendChild(title);
+        textWrapper.appendChild(description);
+    }
+
     form.addEventListener("submit", function (event) {
-      event.preventDefault(); // Останавливаем стандартную отправку формы
+        event.preventDefault(); // Останавливаем стандартную отправку формы
 
-      // Проверяем, прошла ли форма валидацию
-      if (form.checkValidity()) {
-        // Скрываем форму
-        form.style.display = "none";
+        if (form.checkValidity()) {
+            // Скрываем только input и checkbox внутри текущей формы
+            form.querySelectorAll(".input, .checkbox__container").forEach(element => {
+                element.style.display = "none";
+            });
 
-        // Меняем заголовок и описание
-        title.textContent = "Ваша заявка отправлена";
-        description.textContent = "Мы свяжемся с вами в течение 30 минут";
+            // Меняем заголовок и описание
+            title.textContent = "Ваша заявка отправлена";
+            description.textContent = "Мы свяжемся с вами в течение 30 минут";
 
-        // Закрытие попап через 3 секунд
-        setTimeout(() => {
-          const slide2 = document.getElementById("slide-2");
-          if (slide2) {
-            slide2.classList.remove("active", "fullscreen");
-          }
-        }, 3000);
-      } else {
-        form.reportValidity(); // Показываем встроенные ошибки браузера
-      }
+            // Создаем новый контейнер с кнопкой-ссылкой
+            const btnContainer = document.createElement("div");
+            btnContainer.classList.add("btn__container");
+
+            const homeLink = document.createElement("a");
+            homeLink.href = "index.html";
+            homeLink.classList.add("btn");
+            homeLink.textContent = "Вернуться на главную";
+
+            btnContainer.appendChild(homeLink);
+
+            // Вставляем новый контейнер вместо кнопки
+            submitButton.replaceWith(btnContainer);
+
+            // Закрытие попапа через 3 секунды
+            setTimeout(() => {
+                const slide2 = document.getElementById("slide-2");
+                if (slide2) {
+                    slide2.classList.remove("active", "fullscreen");
+                }
+            }, 3000);
+        } else {
+            form.reportValidity(); // Показываем встроенные ошибки браузера
+        }
     });
-  });
+});
+
+
 
 
   //Работа открытия попап формы для всех страниц

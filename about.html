@@ -148,9 +148,10 @@
 
 
         <div class="blue-bg">
-            <div class="container">
 
-                <section class="main type-main">
+
+            <section class="main type-main">
+                <div class="container">
                     <div class="top">
                         <h1 class="header-1">
                             Недвижимость в Москве
@@ -167,39 +168,53 @@
                     <div class="bottom">
                         <img src="img/main.png" alt="main-img" class="img">
                     </div>
+                </div>
 
 
-                    <div class="scroll__partners section-100 anim__items anim__show">
-                        <div class="partners__container" id="partners">
-                            <img src="img/logo-1.svg" class="partners__img" alt="partners 1">
-                            <img src="img/logo-2.svg" class="partners__img" alt="partners 2">
-                            <img src="img/logo-3.svg" class="partners__img" alt="partners 3">
-                            <img src="img/logo-4.svg" class="partners__img" alt="partners 4">
-                            <img src="img/logo-5.svg" class="partners__img" alt="partners 5">
-                            <img src="img/logo-6.svg" class="partners__img" alt="partners 6">
-                        </div>
-
+                <div class="scroll__partners section-100 anim__items anim__show">
+                    <div class="partners__container" id="partners">
+                        <img src="img/logo-1.svg" class="partners__img" alt="partners 1">
+                        <img src="img/logo-2.svg" class="partners__img" alt="partners 2">
+                        <img src="img/logo-3.svg" class="partners__img" alt="partners 3">
+                        <img src="img/logo-4.svg" class="partners__img" alt="partners 4">
+                        <img src="img/logo-5.svg" class="partners__img" alt="partners 5">
+                        <img src="img/logo-6.svg" class="partners__img" alt="partners 6">
                     </div>
-                </section>
+
+                </div>
+            </section>
 
 
 
-
-                <section class="section-200 about">
+            <div class="container">
+                <section class="section-100 about invest-page">
                     <div class="type__block-lr">
                         <div class="left">
-                            <h2 class="header-2">
-                                Эксклюзивные предложения
-                                премиальной недвижимости
-                            </h2>
-                            <p class="descr">
-                                Предлагаем индивидуальный подход, сервис и поддержку —
-                                это позволяет клиенту принимать обдуманные и уверенныерешения при реализации
-                                недвижимости.
-                                Наша команда быстро реагирует на изменения и предлагает
-                                вам наиболее подходящие варианты, позволяя вам принимать решения, опираясь на актуальную
-                                информацию.
-                            </p>
+                            <div class="text__container">
+                                <h2 class="header-1">
+                                    Эксклюзивные предложения
+                                    премиальной недвижимости
+                                </h2>
+
+
+                                <ul class="list">
+                                    <li class="item">
+                                        <p class="descr">
+                                            Предлагаем индивидуальный подход, сервис и поддержку —
+                                            это позволяет клиенту принимать обдуманные и уверенныерешения при реализации
+                                            недвижимости.
+                                        </p>
+                                    </li>
+                                    <li class="item">
+                                        <p class="descr">
+                                            Быстро реагируем на изменения и предлагаем
+                                            вам наиболее подходящие варианты, позволяя вам принимать решения, опираясь
+                                            на актуальную информацию.
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </div>
 
                             <div class="btn__container form-popup-open">
                                 <p class="btn">
@@ -216,24 +231,26 @@
                         </div>
                     </div>
                 </section>
+            </div>
 
+            <section class="scroll__partners about-partners section-100">
+                <div class="partners__container" id="advantages">
+                    <h2 class="header-1">
+                        прозрачность
+                    </h2>
+                    <h2 class="header-1">
+                        конфиденциальность
+                    </h2>
+                    <h2 class="header-1">
+                        оперативность
+                    </h2>
 
-                <section class="scroll__partners about-partners section-100">
-                    <div class="partners__container" id="advantages">
-                        <h2 class="header-1">
-                            прозрачность
-                        </h2>
-                        <h2 class="header-1">
-                            конфиденциальность
-                        </h2>
-                        <h2 class="header-1">
-                            оперативность
-                        </h2>
+                </div>
+            </section>
 
-                    </div>
-                </section>
+            <div class="container">
 
-                <section class="section-200 grid-list help">
+                <section class="section-100 grid-list help">
                     <ul class="grdi-2__list">
                         <li class="grid-2__item">
                             <img src="img/help-1.png" alt="help-img" class="img">
@@ -494,22 +511,22 @@
                                 консультация
                             </h2>
                             <p class="descr">
-                                Оставьте заявку и мы свяжемся с вами в течении 30 минут 
+                                Оставьте заявку и мы свяжемся с вами в течении 30 минут
                             </p>
-    
+
                             <form action="mail.php" method="post" class="input__group" id="feedback-form-1"
                                 enctype="multipart/form-data">
                                 <input type="text" name="name" class="input" placeholder="Фамилия Имя Отчество"
                                     minlength="3" required title="Пожалуйста, введите имя">
-                                    <input type="text" name="phone" class="input phone-mask" placeholder="+7 (800) 000-00-00" required
-                                title="Пожалуйста, введите телефон">
+                                <input type="text" name="phone" class="input phone-mask"
+                                    placeholder="+7 (800) 000-00-00" required title="Пожалуйста, введите телефон">
                                 <input type="email" name="email" class="input" placeholder="ivan.ivanovich@mail.ru"
                                     required title="Пожалуйста, введите E-mail">
-    
+
                                 <div class="checkbox__container">
                                     <input class="checkbox" type="checkbox" id="checkbox" name="checkbox" required />
                                     <label class="checkbox-label" for="checkbox">
-    
+
                                         <p class="descr">
                                             Я даю согласие на
                                             <a class="privacy__link" href="privacy.html">
@@ -517,7 +534,7 @@
                                                     персональных данных</span>
                                             </a>
                                         </p>
-    
+
                                     </label>
                                 </div>
                                 <button type="submit" class="btn form__btn" name="submit" id="submit-feedback-1">
@@ -529,8 +546,6 @@
                             <img src="img/form.png" alt="Contact form" class="img">
                         </div>
                     </div>
-    
-                    <div class="mb-100"></div>
                 </section>
 
             </div>
@@ -542,22 +557,22 @@
 
             <div class="popup__container fullscr " id="slide-2">
                 <div class="step " id="form-popup">
-                    <div class="form__container form-change">
+                    <div class="form__container form-change form-white">
                         <div class="form__left">
                             <h2 class="header-1">
                                 Оставьте заявку
-                                на каталог
+                                на консультацию
                             </h2>
                             <p class="descr">
-                                И наш специалист отправит вам перснальную подборку
+                                Наш специалист свяжется с вами в течении 30 минут
                             </p>
 
                             <form action="mail.php" method="post" class="input__group" id="feedback-form-1"
                                 enctype="multipart/form-data">
                                 <input type="text" name="name" class="input" placeholder="Фамилия Имя Отчество"
                                     minlength="3" required title="Пожалуйста, введите имя">
-                                    <input type="text" name="phone" class="input phone-mask" placeholder="+7 (800) 000-00-00" required
-                                    title="Пожалуйста, введите телефон">
+                                <input type="text" name="phone" class="input phone-mask"
+                                    placeholder="+7 (800) 000-00-00" required title="Пожалуйста, введите телефон">
                                 <input type="email" name="email" class="input" placeholder="ivan.ivanovich@mail.ru"
                                     required title="Пожалуйста, введите E-mail">
 
@@ -576,7 +591,7 @@
                                     </label>
                                 </div>
                                 <button type="submit" class="btn form__btn" name="submit">
-                                    Оставьте заявку
+                                    Отправить заявку
                                 </button>
                             </form>
                         </div>
@@ -600,7 +615,22 @@
         <div class="container">
 
             <div class="top">
-                <img src="img/logo.svg" alt="logo" class="logo">
+
+                <div class="left">
+                    <img src="img/logo.svg" alt="logo" class="logo">
+                </div>
+                <div class="right">
+                    <p class="descr">
+                        <a href="tel:+79685550121" class="link phone-link">
+                            +7 (968) 555‑01‑21
+                        </a>
+                    </p>
+                    <p class="descr">
+                        <a href="mailto:info@kbmanor.ru" class="link phone-link">
+                            info@kbmanor.ru
+                        </a>
+                    </p>
+                </div>
             </div>
 
             <div class="center">
@@ -659,16 +689,7 @@
                 </div>
                 <div class="right">
 
-                    <p class="descr">
-                        <a href="tel:+79685550121" class="link phone-link">
-                            +7 (968) 555‑01‑21
-                        </a>
-                    </p>
-                    <p class="descr">
-                        <a href="mailto:info@kbmanor.ru" class="link phone-link">
-                            info@kbmanor.ru
-                        </a>
-                    </p>
+
 
                 </div>
             </div>
