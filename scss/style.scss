@@ -355,7 +355,7 @@ html {
 }
 
 .type-main {
-    min-height: 90vh;
+    height: 80vh;
 }
 
 .height-80 {
@@ -391,7 +391,6 @@ html {
 
     .img {
         margin-top: $mtheader-margin-top;
-        height: 44em;
     }
 }
 
@@ -421,6 +420,12 @@ html {
     }
 }
 
+.line-height {
+    .header-1 {
+        margin-top: -15px;
+        line-height: normal;
+    }
+}
 
 //catalog
 
@@ -432,6 +437,7 @@ html {
 
     .type__block-lr {
         margin-top: $mtheader-margin-top;
+        padding-bottom: 0;
     }
 
     .descr {
@@ -857,7 +863,7 @@ input[type="checkbox"]:checked {
 
     .step.active {
         width: 86vw;
-        height: 49vh;
+        height: auto;
         opacity: 1;
         transition: $transition-opacity;
         visibility: visible;
@@ -1164,6 +1170,10 @@ input[type="checkbox"]:checked {
 
 .type-indiv {
 
+    .swiper {
+        height: 70vh;
+    }
+
     .bottom {
         margin-top: $mtheader-margin-top;
         position: relative;
@@ -1171,10 +1181,6 @@ input[type="checkbox"]:checked {
 
     .swiper-wrapper {
         border-radius: 0;
-
-        .img{
-            min-height: 70vh;
-        }
     }
 
     .descr {
@@ -1578,7 +1584,6 @@ input[type="checkbox"]:checked {
     .header-1 {
         color: $white;
         text-wrap: nowrap;
-        line-height: normal;
     }
 
 
@@ -1613,7 +1618,7 @@ input[type="checkbox"]:checked {
         }
     }
 
-    .left__icon{
+    .left__icon {
         position: absolute;
         bottom: 40px;
         left: 40px;
@@ -1821,6 +1826,7 @@ input[type="checkbox"]:checked {
 
 .artical__main {
     position: relative;
+    height: 80vh;
 
     .header-1 {
         color: $white;

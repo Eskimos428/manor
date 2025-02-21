@@ -354,7 +354,7 @@ html {
 }
 
 .type-main {
-  min-height: 90vh;
+  height: 80vh;
 }
 
 .height-80 {
@@ -383,7 +383,6 @@ html {
 }
 .main .img {
   margin-top: 40px;
-  height: 44em;
 }
 
 .scroll__partners {
@@ -409,11 +408,17 @@ html {
      object-fit: contain;
 }
 
+.line-height .header-1 {
+  margin-top: -15px;
+  line-height: normal;
+}
+
 .catalog .header-1 {
   margin-top: 40px;
 }
 .catalog .type__block-lr {
   margin-top: 40px;
+  padding-bottom: 0;
 }
 .catalog .descr {
   text-align: right;
@@ -771,7 +776,7 @@ input[type=checkbox]:checked {
 }
 .choise-popup .step.active {
   width: 86vw;
-  height: 49vh;
+  height: auto;
   opacity: 1;
   transition: opacity 0.4s ease;
   visibility: visible;
@@ -999,15 +1004,15 @@ input[type=checkbox]:checked {
   margin-top: 40px;
 }
 
+.type-indiv .swiper {
+  height: 70vh;
+}
 .type-indiv .bottom {
   margin-top: 40px;
   position: relative;
 }
 .type-indiv .swiper-wrapper {
   border-radius: 0;
-}
-.type-indiv .swiper-wrapper .img {
-  min-height: 70vh;
 }
 .type-indiv .descr {
   color: #F2F3F4;
@@ -1303,7 +1308,6 @@ input[type=checkbox]:checked {
 .about-partners .header-1 {
   color: #F2F3F4;
   text-wrap: nowrap;
-  line-height: normal;
 }
 
 .type-indiv {
@@ -1480,6 +1484,7 @@ input[type=checkbox]:checked {
 
 .artical__main {
   position: relative;
+  height: 80vh;
 }
 .artical__main .header-1 {
   color: #F2F3F4;
