@@ -41,13 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const burgerBtn = document.querySelector('.burger')
   const closeBtn = document.querySelector('.close')
   const nav = document.querySelector('.header__bottom')
-  const navMobile = document.querySelector('.nav__mob')
   const headerOpen = document.querySelector('.header')
 
   if (burgerBtn) {
     burgerBtn.addEventListener('click', () => {
       nav.classList.toggle('active')
-      navMobile.classList.toggle('active')
       burgerBtn.classList.remove('active')
       closeBtn.classList.add('active')
 
@@ -58,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       nav.classList.toggle('active')
-      navMobile.classList.toggle('active')
       burgerBtn.classList.add('active')
       closeBtn.classList.remove('active')
       headerOpen.classList.remove('h-height')
@@ -69,8 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Скролл партнеры
   let scrollPosition = 0;
   window.addEventListener('scroll', () => {
-    let newPosition = window.scrollY * -0.9; // Регулировка скорости смещения
-    let newPositionAdv = window.scrollY * -0.38; // Регулировка скорости смещения
+    let speed = window.innerWidth < 500 ? -0.4 : -0.9; // для мобилы снижаем скорость прокручивания для лого
+    let speedText = window.innerWidth < 500 ? -0.65 : -0.9; // для мобилы снижаем скорость прокручивания для текста
+   
+    let newPosition = window.scrollY * speed;// Регулировка скорости смещения лого
+    let newPositionAdv = window.scrollY * speedText; // Регулировка скорости смещения текст
 
     const partnersElement = document.getElementById('partners');
     const advantagesElement = document.getElementById('advantages');
@@ -80,8 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (advantagesElement) {
-      advantagesElement.style.transform = `translate(60%, 0%) translateX(${newPositionAdv}px)`;
+      const translateXValue = window.innerWidth <= 550 ? "translate(160%, 0%)" : "translate(120%, 0%)";
+      advantagesElement.style.transform = `${translateXValue} translateX(${newPositionAdv}px)`;
     }
+
   });
 
 
@@ -235,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Добавляем класс space-between к .form__left
     if (formLeft) {
-        formLeft.classList.add("space-between");
+      formLeft.classList.add("space-between");
     }
 
     const title = formContainer.querySelector(".header-1");
@@ -246,50 +248,51 @@ document.addEventListener('DOMContentLoaded', function () {
     textWrapper.classList.add("text-wrapper");
 
     if (title && description) {
-        title.parentNode.insertBefore(textWrapper, title);
-        textWrapper.appendChild(title);
-        textWrapper.appendChild(description);
+      title.parentNode.insertBefore(textWrapper, title);
+      textWrapper.appendChild(title);
+      textWrapper.appendChild(description);
     }
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Останавливаем стандартную отправку формы
+      event.preventDefault(); // Останавливаем стандартную отправку формы
 
-        if (form.checkValidity()) {
-            // Скрываем только input и checkbox внутри текущей формы
-            form.querySelectorAll(".input, .checkbox__container").forEach(element => {
-                element.style.display = "none";
-            });
+      if (form.checkValidity()) {
+        // Скрываем только input и checkbox внутри текущей формы
+        form.querySelectorAll(".input, .checkbox__container").forEach(element => {
+          element.style.display = "none";
+        });
 
-            // Меняем заголовок и описание
-            title.textContent = "Ваша заявка отправлена";
-            description.textContent = "Мы свяжемся с вами в течение 30 минут";
+        // Меняем заголовок и описание
+        title.textContent = "Ваша заявка отправлена";
+        description.textContent = "Мы свяжемся с вами в течение 30 минут";
 
-            // Создаем новый контейнер с кнопкой-ссылкой
-            const btnContainer = document.createElement("div");
-            btnContainer.classList.add("btn__container");
+        // Создаем новый контейнер с кнопкой-ссылкой
+        const btnContainer = document.createElement("div");
+        btnContainer.classList.add("btn__container");
 
-            const homeLink = document.createElement("a");
-            homeLink.href = "index.html";
-            homeLink.classList.add("btn");
-            homeLink.textContent = "Вернуться на главную";
+        const homeLink = document.createElement("a");
+        homeLink.href = "index.html";
+        homeLink.classList.add("form__btn", "btn"); 
+        homeLink.textContent = "Вернуться на главную";
 
-            btnContainer.appendChild(homeLink);
+        btnContainer.appendChild(homeLink);
 
-            // Вставляем новый контейнер вместо кнопки
-            submitButton.replaceWith(btnContainer);
+        // Вставляем новый контейнер вместо кнопки
+        submitButton.replaceWith(btnContainer);
 
-            // Закрытие попапа через 3 секунды
-            setTimeout(() => {
-                const slide2 = document.getElementById("slide-2");
-                if (slide2) {
-                    slide2.classList.remove("active", "fullscreen");
-                }
-            }, 3000);
-        } else {
-            form.reportValidity(); // Показываем встроенные ошибки браузера
-        }
+
+        // Закрытие попапа через 3 секунды
+        setTimeout(() => {
+          const slide2 = document.getElementById("slide-2");
+          if (slide2) {
+            slide2.classList.remove("active", "fullscreen");
+          }
+        }, 3000);
+      } else {
+        form.reportValidity(); // Показываем встроенные ошибки браузера
+      }
     });
-});
+  });
 
 
 
